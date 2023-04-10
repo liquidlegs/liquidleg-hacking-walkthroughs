@@ -1,0 +1,54 @@
+{
+    "Hostname":"f84a6b33fb5a",
+    "Domainname":"",
+    "User":"",
+    "AttachStdin":false,
+    "AttachStdout":false,
+    "AttachStderr":false,
+    "ExposedPorts":{
+       "3306/tcp":{
+          
+       },
+       "33060/tcp":{
+          
+       }
+    },
+    "Tty":false,
+    "OpenStdin":false,
+    "StdinOnce":false,
+    "Env":[
+       "MYSQL_ROOT_PASSWORD=jI86kGUuj87guWr3RyF",
+       "MYSQL_USER=gitea",
+       "MYSQL_PASSWORD=yuiu1hoiu4i5ho1uh",
+       "MYSQL_DATABASE=gitea",
+       "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+       "GOSU_VERSION=1.14",
+       "MYSQL_MAJOR=8.0",
+       "MYSQL_VERSION=8.0.31-1.el8",
+       "MYSQL_SHELL_VERSION=8.0.31-1.el8"
+    ],
+    "Cmd":[
+       "mysqld"
+    ],
+    "Image":"mysql:8",
+    "Volumes":{
+       "/var/lib/mysql":{
+          
+       }
+    },
+    "WorkingDir":"",
+    "Entrypoint":[
+       "docker-entrypoint.sh"
+    ],
+    "OnBuild":null,
+    "Labels":{
+       "com.docker.compose.config-hash":"1b3f25a702c351e42b82c1867f5761829ada67262ed4ab55276e50538c54792b",
+       "com.docker.compose.container-number":"1",
+       "com.docker.compose.oneoff":"False",
+       "com.docker.compose.project":"docker",
+       "com.docker.compose.project.config_files":"docker-compose.yml",
+       "com.docker.compose.project.working_dir":"/root/scripts/docker",
+       "com.docker.compose.service":"db",
+       "com.docker.compose.version":"1.29.2"
+    }
+ }
