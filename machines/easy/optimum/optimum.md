@@ -94,17 +94,16 @@ Nmap done: 1 IP address (1 host up) scanned in 19.94 seconds
 Upon navigating to the http server open on port 80, the following is presented to the screen.
 ![1](assets/1.png)
 
-At the bottom of the screenshot we can also see some information about the server which will help indicate if and what exploit it is vulnerable to.
+At the bottom of the screenshot we can see some information about the server. This should help indicate if and what exploit the server is vulnerable to.
 
-Looking through the source file of the page under the server information section, reveals a [link](http://www.rejetto.com/hfs/) to an open source package named `hfs` which standard for `Hierarchical File System`.
+Looking through the source file of the reveals a [link](http://www.rejetto.com/hfs/) to an open source package named `hfs` which stands for `Hierarchical File System`.
 ![2](assets/2.png)
 
-When I search the following `rejetto HFS HTTPFileServer 2.3` on google, I see hundreds of results about remote command execution vulnerabilites for this server version.
+When I for `rejetto HFS HTTPFileServer 2.3` on google, I see hundreds of results about remote command execution vulnerabilites for this server version.
 
-I think its safe to say that this machine is vulnerable and can likely be exploited with Metasploit.
+I think its safe to say that this machine is quite likely vulnerable.
 
 ## Foothold
-
 From here I startup metasploit and search `rejetto`.
 ```go
 [msf](Jobs:0 Agents:0) >> search rejetto
@@ -131,7 +130,7 @@ After I finish setting up the reverse shell and enter `exploit`, we see the foll
 ```
 
 We have a shell!
-Executing sysinfo and ls shows we are running windows server 2012 R2 and that are already have the user flag.
+Executing `sysinfo` and `ls` shows we are running windows server 2012 R2 and that we are already have the user flag.
 ```go
 (Meterpreter 1)(C:\Users\kostas\Desktop) > sysinfo
 Computer        : OPTIMUM
@@ -153,7 +152,7 @@ Mode              Size    Type  Last modified              Name
 100444/r--r--r--  34      fil   2023-04-17 20:42:35 +1000  user.txt
 ```
 
-Interestingly when I take screenshot of the users desktop, we can see my machine connecting to the victim through the logs in the GUI.
+Interestingly when I take screenshot of the users desktop, we can see my machine connecting to the victim through the logs in the HFS GUI.
 ![3](assets/3.png)
 
 From here I uploaded winPREAS.exe to the target host to see if I could find any credentials laying around or if the script would suggest some exploits for me.
@@ -161,7 +160,7 @@ From here I uploaded winPREAS.exe to the target host to see if I could find any 
 However, winpeas wasent overly helpful.
 At this point I went back to my reverse shell and entered the command `systeminfo` to see if I could get the exact Operating system build number and perform a manual search online.
 
-While searching I found that the machine was potentially vulnerable to [MS16_032](https://www.exploit-db.com/exploits/39719)
+While searching online I found that the machine was potentially vulnerable to [MS16_032](https://www.exploit-db.com/exploits/39719)
 
 I was also able to verify this when I backgrounded the metasploit session with the `background` command and executed the handy dandy exploit suggester.
 ```go
