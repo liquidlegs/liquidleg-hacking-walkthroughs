@@ -314,6 +314,8 @@ While searching around on the machine, I noticed in `/opt/` there is a binary na
 
 Without going into too much detail, I can already see that the vulnerability in this code is a buffer overflow. The Valgrind log is also a dead giveaway that this is quite possibly the intended vulnerability that we need to exploit to complete the box.
 
+![10](assets/10.png)
+
 However, as memory corruption bugs are not the easiest vulnerabilities to exploit, I'm going to take a slightly different route.
 
 I noticed that when executing the `count` binary, it asks you to provide the path to a file or a directory. Rather than exploiting a buffer overflow, getting root permissions might be as simple as reading a file in the root directory and then providing input to the program that will make it crash.
