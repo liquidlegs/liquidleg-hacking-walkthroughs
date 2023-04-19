@@ -1,2 +1,2 @@
-# liquidleg-hacking-walkthroughs
+# hacking-walkthroughs
 Hacking walkthroughs, Exercises, Reports, and Notes
