@@ -1,2 +1,2 @@
 # liquidleg-htb-writeups
-A personal place to store htb writeups and notes
+Hacking walkthroughs, Exercises, Reports, and Notes
