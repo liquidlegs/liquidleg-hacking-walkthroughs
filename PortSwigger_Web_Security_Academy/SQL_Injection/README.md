@@ -53,5 +53,3 @@
 
 ##### SQL injection with filter bypass via XML encoding
 [lab 18 (TODO)]()
-
-3sA9ZUxB007LMn36BATjpobkF5WYW4eL3sA9ZUxB007LMn36BATjpobkF5WYW4eL
