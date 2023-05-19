@@ -31,3 +31,27 @@
 
 ##### SQL injection attack, listing the database contents on Oracle
 [lab 10](/PortSwigger_Web_Security_Academy/SQL_Injection/lab10/lab10.md)
+
+##### Blind SQL injection with conditional responses
+[lab 11 (TODO)]()
+
+##### Blind SQL injection with conditional errors
+[lab 12 (TODO)]()
+
+##### Visible error-based SQL injection
+[lab 13 (TODO)]()
+
+##### Blind SQL injection with time delays
+[lab 14 (TODO)]()
+
+##### Blind SQL injection with time delays and information retrieval
+[lab 15 (TODO)]()
+
+##### Blind SQL injection with out-of-band interaction
+[lab 16 (TODO)]()
+
+##### Blind SQL injection with out-of-band data exfiltration
+[lab 17 (TODO)]()
+
+##### SQL injection with filter bypass via XML encoding
+[lab 18 (TODO)]()
