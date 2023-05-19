@@ -1,6 +1,4 @@
-# SQL Injection
-
-## Lab walkthroughs
+# SQL Injection - Lab walkthroughs
 
 ##### SQL injection vulnerability in WHERE clause allowing retrieval of hidden data
 [lab 1](/PortSwigger_Web_Security_Academy/SQL_Injection/lab1/lab1.md)
@@ -55,3 +53,5 @@
 
 ##### SQL injection with filter bypass via XML encoding
 [lab 18 (TODO)]()
+
+3sA9ZUxB007LMn36BATjpobkF5WYW4eL3sA9ZUxB007LMn36BATjpobkF5WYW4eL
