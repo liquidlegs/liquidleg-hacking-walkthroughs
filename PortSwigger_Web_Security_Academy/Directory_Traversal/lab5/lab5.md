@@ -1,4 +1,4 @@
-# lab 5
+# Lab 5
 ##### File path traversal, validation of start of path
 
 ![1](assets/1.png)
