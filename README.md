@@ -1,12 +1,12 @@
 # hacking-walkthroughs
 Hacking walkthroughs, Exercises, Reports, and Notes
 
-## ![htb](assets/htb.png)
+## HackTheBox
 
 ##### [Easy Machines](htb_walkthroughs/easy/README.md)
 
 ---
-## ![academy](assets/port.png)
+## PortSwigger Web Security Academy
 
 [SQL Injection](PortSwigger_Web_Security_Academy/SQL_Injection/README.md)
 
