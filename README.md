@@ -1,7 +1,13 @@
 # hacking-walkthroughs
 Hacking walkthroughs, Exercises, Reports, and Notes
 
-# PortSwigger Labs
+## ![htb](assets/htb.png)
+
+##### [Easy Machines](htb_walkthroughs/easy/README.md)
+
+---
+## ![academy](assets/port.png)
+
 [SQL Injection](PortSwigger_Web_Security_Academy/SQL_Injection/README.md)
 
 [Directory Traversal](PortSwigger_Web_Security_Academy/Directory_Traversal/README.md)
