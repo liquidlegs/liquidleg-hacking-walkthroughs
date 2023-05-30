@@ -16,7 +16,6 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 
 [XXE Injection](PortSwigger_Web_Security_Academy/XXE/README.md)
 
-[Business Logic Vulnerabilities TODO](PortSwigger_Web_Security_Academy/)
+[Business Logic Vulnerabilities](PortSwigger_Web_Security_Academy/Business_Logic/README.md)
 
-[Command Injection TODO](PortSwigger_Web_Security_Academy/)
-
+[Command Injection](PortSwigger_Web_Security_Academy/Command_Injection//README.md)
