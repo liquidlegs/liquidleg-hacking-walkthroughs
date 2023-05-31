@@ -1,4 +1,4 @@
-# XXE Injection - Lab Walkthroughs
+# XML External Entities (XXE) - Lab Walkthroughs
 
 ##### Exploiting XXE using external entities to retrieve files
 [lab 1](lab1/lab1.md)
