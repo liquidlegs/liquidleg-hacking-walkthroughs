@@ -32,3 +32,8 @@
 ![banner](secret/assets/intro.png)
 
 [Secret writeup](secret/secret.md)
+
+## GoodGames
+![banner](goodgames/assets/banner.png)
+
+[GoodGames writeup](goodgames/goodgames.md)
