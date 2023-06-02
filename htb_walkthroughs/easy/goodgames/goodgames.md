@@ -1,5 +1,7 @@
 # Good Games Writeup
 
+![banner](assets/banner.png)
+
 Target host: 10.10.11.130
 TCP port scan.
 ```php
