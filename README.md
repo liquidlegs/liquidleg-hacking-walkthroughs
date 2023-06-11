@@ -32,3 +32,12 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 ### Client-Side Vulnerabilities
 
 [Cross Site Scripting (XSS)](PortSwigger_Web_Security_Academy/XSS/README.md)
+
+---
+Pentesterlab
+
+[From SQL Injection to Shell I](/Pentester%20Lab/From%20SQL%20Injection%20to%20Shell/sql_2_shell.md)
+
+[From SQL Injection to Shell II](/Pentester%20Lab/)
+
+[CVE-2014-6271 (ShellShock)](/Pentester%20Lab/)
