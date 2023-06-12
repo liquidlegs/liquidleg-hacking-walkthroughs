@@ -3,7 +3,13 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 
 ## HackTheBox
 
-##### [Easy Machines](htb_walkthroughs/easy/README.md)
+[Easy Machines](htb_walkthroughs/easy/README.md)
+
+[Medium Machines](htb_walkthroughs/)
+
+[Hard Machines](htb_walkthroughs/)
+
+[Insane Machines](htb_walkthroughs/)
 
 ---
 ## PortSwigger Web Security Academy
