@@ -39,36 +39,36 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 
 [Cross Site Scripting (XSS)](PortSwigger_Web_Security_Academy/XSS/README.md)
 
-[Cross Site Request Forgery (CSRF)]()
+[Cross Site Request Forgery (CSRF)](PortSwigger_Web_Security_Academy/CSRF/README.md)
 
-[Cross Origin Resource Sharing (CORS)]()
+[Cross Origin Resource Sharing (CORS)](PortSwigger_Web_Security_Academy/CORS/README.md)
 
-[ClickJacking]()
+[ClickJacking](PortSwigger_Web_Security_Academy/ClickJacking/README.md)
 
-[DOM-Based Vulnerabilities]()
+[DOM-Based Vulnerabilities](PortSwigger_Web_Security_Academy/DOM-Based_Vulnerabilities/README.md)
 
-[WebSockets]()
+[WebSockets](PortSwigger_Web_Security_Academy/WebSockets/README.md)
 
 
 ### Advanced Topics
 
-[Insecure Deserialization]()
+[Insecure Deserialization](PortSwigger_Web_Security_Academy/Insecure_Deserialization/README.md)
 
-[Server-Side Template Injection (SSTI)]()
+[Server-Side Template Injection (SSTI)](PortSwigger_Web_Security_Academy/Server-Side_Template_Injection/README.md)
 
-[Web Cache Poisoning]()
+[Web Cache Poisoning](PortSwigger_Web_Security_Academy/Web_Cache_Poisoning/README.md)
 
-[HTTP Host Header Attacks]()
+[HTTP Host Header Attacks](PortSwigger_Web_Security_Academy/HTTP_Host_Header_Attacks/README.md)
 
-[HTTP Request Smuggling]()
+[HTTP Request Smuggling](PortSwigger_Web_Security_Academy/HTTP_Request_Smuggling/README.md)
 
-[OAuth Authentication]()
+[OAuth Authentication](PortSwigger_Web_Security_Academy/OAuth_Authentication/README.md)
 
-[JWT Attacks]()
+[JWT Attacks](PortSwigger_Web_Security_Academy/JWT_Attacks/README.md)
 
-[Prototype Pollution]()
+[Prototype Pollution](PortSwigger_Web_Security_Academy/Prototype_Pollution/README.md)
 
-[Essential Skills]()
+[Essential Skills](PortSwigger_Web_Security_Academy/Essential_Skills/README.md)
 
 ---
 ## Pentesterlab
