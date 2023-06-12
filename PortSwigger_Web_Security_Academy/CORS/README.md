@@ -1,0 +1,3 @@
+# Cross Origin Resource Policy (CORS)
+
+### Content coming soon...
