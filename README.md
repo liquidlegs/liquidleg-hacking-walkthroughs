@@ -69,6 +69,7 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 [Prototype Pollution]()
 
 [Essential Skills]()
+
 ---
 ## Pentesterlab
 
