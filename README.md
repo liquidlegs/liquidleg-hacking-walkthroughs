@@ -39,6 +39,36 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 
 [Cross Site Scripting (XSS)](PortSwigger_Web_Security_Academy/XSS/README.md)
 
+[Cross Site Request Forgery (CSRF)]()
+
+[Cross Origin Resource Sharing (CORS)]()
+
+[ClickJacking]()
+
+[DOM-Based Vulnerabilities]()
+
+[WebSockets]()
+
+
+### Advanced Topics
+
+[Insecure Deserialization]()
+
+[Server-Side Template Injection (SSTI)]()
+
+[Web Cache Poisoning]()
+
+[HTTP Host Header Attacks]()
+
+[HTTP Request Smuggling]()
+
+[OAuth Authentication]()
+
+[JWT Attacks]()
+
+[Prototype Pollution]()
+
+[Essential Skills]()
 ---
 ## Pentesterlab
 
@@ -47,3 +77,7 @@ Hacking walkthroughs, Exercises, Reports, and Notes
 [From SQL Injection to Shell II](/Pentester%20Lab/)
 
 [CVE-2014-6271 (ShellShock)](/Pentester%20Lab/)
+
+[Web For Pentester I](/Pentester%20Lab/)
+
+[Web For Pentester II](/Pentester%20Lab/)
